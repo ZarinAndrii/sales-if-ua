@@ -1,0 +1,102 @@
+body {
+	padding-top: 55px;
+}
+.side-nav>li>a{
+	width: 225px;
+	font-size: 16px;
+	padding-left: 20px;
+}
+.side-nav{
+	position: fixed;
+	top: 50px;
+	left: 225px;
+	width: 225px;
+	margin-left: -225px;
+	background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+	bottom: 0;
+	overflow-x: auto;
+	overflow-y: auto;
+}
+.navStyle{
+	background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+}
+/*.border {
+	border: 1px solid black;
+	border-radius: 15px;
+}*/
+.borderNew{
+	border: 10px;
+}
+.right {
+	float: right;
+    	margin-bottom: 15px;
+    	margin-top: 140px;
+}
+/*Setting&rounding 2 border*/
+.borderAll{
+	border:3px double #A0A0A0 ;
+	/*border-radius: 15px;*/
+}
+.bot{
+	margin-bottom: 5px;
+	}
+/*Padding in divs*/
+.PaddingDiv {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	}
+/*Shadow fow boxes*/
+.shadow {
+   	box-shadow: inset 0px 0px 53px -2px rgba(133,126,133,1);
+  	 }
+.navbar-nav>li>a {
+  	padding-top: 10px;
+  	padding-bottom: 10px;
+ 	line-height: 20px;
+ 	background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+}
+ul, menu, dir {
+  	display: block;
+ 	 list-style-type: disc;
+ 	 -webkit-margin-before: 1em;
+ 	 -webkit-margin-after: 1em;
+  	-webkit-margin-start: 0px;
+ 	 -webkit-margin-end: 0px;
+  	-webkit-padding-start: 40px;
+}
+/*Default settings for side-nav fro Bottstrap SD Admin*/
+.fa-fw {
+  	width: 1.28571429em;
+  	text-align: center;
+}
+/*Sizing up all gliphpns*/
+.gliphonSizeUp{
+		font-size: 16px;
+		padding-top: 3px;
+}
+/*Drop down menu right padding*/
+.DDMenuRightPadding{
+	margin-right: 10px;
+}
+.DDUserMenuSessionMenuMarginRight{
+	margin-right: 20px;
+}
+/*DDUserMenuSessionMenuMarginRight for Shops*/
+.DDRight{
+	margin-right: 35px;
+}
+.ProfileUserImgMargin{
+	margin: 10px 0px 5px;
+}
+.searchMargine{
+margin: 15px 3px 20px;
+}
+.blockHigh{
+height: 200px;
+}
+.imgUserMargineBottom{
+margin-top: -15px;
+}
+.btnSizeUp{
+	font-size: 20px;
+}
