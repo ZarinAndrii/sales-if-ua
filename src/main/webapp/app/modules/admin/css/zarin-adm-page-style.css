@@ -147,4 +147,14 @@ ul {
 .adm-buttonSizeBlockUnblock {
     width: 90px;
 }
+/*Makes our images round*/
+.circle
+{
+    border-radius:50% 50% 50% 50%;
+    width:300px;
+    height:300px;
+}
+.textColor{
+    color: rgba(249, 255, 249, 0.53);
+}
 

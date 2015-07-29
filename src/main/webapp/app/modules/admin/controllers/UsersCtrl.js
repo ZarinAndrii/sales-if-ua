@@ -1,5 +1,5 @@
 admin.controller('UsersCtrl', ['$scope', '$http',function($scope, $http){
-            $http.get('modules/admin/json/users.json').then(function(response){
+            $http.get('app/modules/admin/json/users.json').then(function(response){
             $scope.users = response.data;
             });
             $scope.changeStatusBlocked = function(index){
