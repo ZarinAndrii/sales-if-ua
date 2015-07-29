@@ -1,108 +1,150 @@
-body {
-	padding-top: 55px;
+.adm-side-nav > li > a {
+    width: 225px;
+    font-size: 16px;
+    padding-left: 20px;
+    color: #9d9d9d;
 }
-.adm-side-nav>li>a{
-	width: 225px;
-	font-size: 16px;
-	padding-left: 20px;
+
+/*.nav-btn-color{
+	color: #9d9d9d;
+}*/
+.adm-page-size {
+    width: 100%;
+    max-width: 225px;
+    min-width: 180px;
 }
-.adm-side-nav{
-	position: fixed;
-	top: 50px;
-	left: 0px;
-	width: 225px;
-	background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
-	bottom: 0;
-	overflow-x: auto;
-	overflow-y: auto;
+
+.disable-scroll {
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
-.adm-navStyle{
-	background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+
+.table-min {
+    min-width: 450px;
+    width: 75%;
 }
-.adm-borderNew{
-	border: 10px;
+
+.adm-side-nav {
+    position: fixed;
+    top: 48px;
+    left: 0px;
+    max-width: 225px;
+    min-width: 180px;
+    width: 25%;
+    background-image: linear-gradient(to bottom, #3c3c3c 0, #222 100%);
+    bottom: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
+
+.adm-navStyle {
+    background-image: linear-gradient(to bottom, #3c3c3c 0, #222 100%);
+}
+
+.adm-borderNew {
+    border: 10px;
+}
+
 .adm-right {
-	float: right;
-    	margin-bottom: 15px;
-    	margin-top: 140px;
+    float: right;
+    margin-bottom: 15px;
+    margin-top: 140px;
 }
+
 /*Setting&rounding 2 border*/
-.adm-borderAll{
-	border:3px double #A0A0A0 ;
-	/*border-radius: 15px;*/
+.adm-borderAll {
+    border: 3px double #A0A0A0;
+    /*border-radius: 15px;*/
 }
-.adm-bot{
-	margin-bottom: 5px;
-	}
+
+.adm-bot {
+    margin-bottom: 5px;
+}
+
 /*Padding in divs*/
 .adm-PaddingDiv {
-	padding-top: 20px;
-	padding-bottom: 20px;
-	}
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 /*Shadow fow boxes*/
 .adm-shadow {
-   	box-shadow: inset 0px 0px 53px -2px rgba(133,126,133,1);
-  	 }
-.navbar-nav>li>a {
-  	padding-top: 10px;
-  	padding-bottom: 10px;
- 	line-height: 20px;
- 	background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+    box-shadow: inset 0px 0px 53px -2px rgba(133, 126, 133, 1);
 }
-ul, menu, dir {
-  	display: block;
- 	 list-style-type: disc;
- 	 -webkit-margin-before: 1em;
- 	 -webkit-margin-after: 1em;
-  	-webkit-margin-start: 0px;
- 	 -webkit-margin-end: 0px;
-  	-webkit-padding-start: 40px;
+
+.navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+    background-image: linear-gradient(to bottom, #3c3c3c 0, #222 100%);
 }
+
+ul {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
 /*Default settings for side-nav fro Bottstrap SD Admin*/
 .adm-fa-fw {
-  	width: 1.28571429em;
-  	text-align: center;
+    width: 1.28571429em;
+    text-align: center;
 }
+
 /*Sizing up all gliphpns*/
-.adm-gliphonSizeUp{
-		font-size: 16px;
-		padding-top: 3px;
+.adm-gliphonSizeUp {
+    font-size: 16px;
+    padding-top: 3px;
 }
+
 /*Drop down menu right padding*/
-.adm-DDMenuRightPadding{
-	margin-right: 10px;
+.adm-DDMenuRightPadding {
+    margin-right: 10px;
 }
-.adm-DDUserMenuSessionMenuMarginRight{
-	margin-right: 20px;
+
+.adm-DDUserMenuSessionMenuMarginRight {
+    margin-right: 20px;
 }
+
 /*DDUserMenuSessionMenuMarginRight for Shops*/
-.adm-DDRight{
-	margin-right: 35px;
+.adm-DDRight {
+    margin-right: 35px;
 }
-.adm-ProfileUserImgMargin{
-	margin: 10px 0px 5px;
+
+.adm-ProfileUserImgMargin {
+    margin: 10px 0px 5px;
 }
-.adm-searchMargine{
-margin: 15px 3px 20px;
+
+.adm-searchMargine {
+    margin: 15px 3px 20px;
 }
-.adm-blockHigh{
-height: 200px;
+
+.adm-blockHigh {
+    height: 200px;
 }
-.adm-imgUserMargineBottom{
-margin-top: -15px;
+
+.adm-imgUserMargineBottom {
+    margin-top: -15px;
 }
-.adm-btnSizeUp{
+
+/*.adm-btnSizeUp{
 	font-size: 20px;
-}
-.adm-PR1{
-	background-color: #FFCCCC;
+	height: 28px;
+}*/
+.adm-PR1 {
+    background-color: #FFCCCC;
 
 }
-.adm-buttonStileBlue{
-	color: 0033CC;
+
+.adm-buttonStileBlue {
+    color: 0033 CC;
 }
-.adm-buttonSizeBlockUnblock{
-	width: 90px;
+
+.adm-buttonSizeBlockUnblock {
+    width: 90px;
 }
 

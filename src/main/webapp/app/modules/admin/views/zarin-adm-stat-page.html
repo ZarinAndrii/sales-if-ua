@@ -1,74 +1,90 @@
-<!-- <html>
-      <head>
-        	<meta charset="utf-8">
-        	<style type="text/css"></style>
-        	<script type="text/javascript"></script>
-      	       <!-- Latest compiled and minified CSS -->
-              <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
-<!-- <link rel="stylesheet" href="https:///maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
-<!-- Optional theme -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
-<!-- Adding css styles -->
-<!-- <link rel="stylesheet" type="text/css" href="../css/zarin-adm-page-style.css"> -->
-<!-- Adding Jquery -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
-<!-- Latest compiled and minified JavaScript -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
-        <!-- </head> --> -->
-
 <!-- Setting navigation bar -->
-<nav class="navbar navbar-inverse navbar-fixed-top navStyle borderNew" role="navigation">
-<!--Setting sidebar -->
-<ul class="nav navbar-nav  side-nav ">
-                    <li class="ProfileUserImgMargin"><img src="modules/admin/img/1.jpg"  class="img-responsive"/></li>
-                 <li><a href="#/admin/users"></i><i class="fa fa-users"></i>  Users</a> </li>
-                          <li><a href="#/admin/shops"><i class="fa fa-shopping-cart"></i>  Shops</a></li>
-                   <li><a href="#/admin/statistics"><i class="fa fa-bar-chart"></i>  Statistics</a></li>
-<!-- end sidebar -->
-	</ul>
- <div class="container-fluid" ng-controller="LineCtrl">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-      <ul class="nav navbar-nav navbar-right">
-	<!-- <form class="navbar-form navbar-left" role="search">
-  	<div class="form-group">
-   	 <input type="text" class="form-control" placeholder="Search">
-  	</div>
-	</form> -->
+<nav class="navbar navbar-inverse navbar-fixed-top adm-navStyle adm-borderNew" role="navigation">
+    <!--Setting sidebar -->
+    <ul class="nav navbar-nav adm-side-nav">
+        <li class="adm-ProfileUserImgMargin"><img src="app/modules/admin/img/1.jpg"  class="img-responsive"/></li>
+        <li><a href="#/admin/users"></i><i class="fa fa-users"></i>  Users</a> </li>
+        <li><a href="#/admin/shops"><i class="fa fa-shopping-cart"></i>  Shops</a></li>
+        <li><a href="#/admin/statistics"><i class="fa fa-bar-chart"></i>  Statistics</a></li>
+        <!-- end sidebar -->
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle DDRight" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-cog"></i> Zarin_Andrii <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Log Out</a></li>
-            <li><a href="#">Profile</a></li>
-            <li class="divider"></li>
-          </ul>
-    </div>
-  </div>
-</nav>
-<body>
-            <div class="container-fluid">
-                    <div class="col-md-2">
-                    </div>
-                    <div class="col-md-10">
-                    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                    <div id="container2" style="min-width: 310px; height: 400px; margin-top: 5px"></div>
-                    </div>
-                    <canvas id="line" class="chart chart-line" data="data" labels="labels" legend="true" series="series" click="onClick"></canvas> 
-                     <!-- // <script type="text/javascript" src="modules/admin/otherjs/templates.js"></script> -->
+            <a href="#" class="dropdown-toggle adm-DDUserMenuSessionMenuMarginRight" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-cog"></i> Zarin_Andrii <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Log Out</a></li>
+                <li><a href="#">Profile</a></li>
+                <li class="divider"></li>
+            </ul>
             </div>
-
-              <!-- chart libs links -->
-             <!--  // <script src="http://code.highcharts.com/highcharts.js"></script>
-              // <script src="http://code.highcharts.com/modules/exporting.js"></script> -->
-              <!-- angular link -->
-              <!-- // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script> -->
-              <!-- JS file with controllers path -->
-
-
-
+</nav>
+<div class="col-md-2">
+</div>
+<div class="col-md-10">
+    <script>
+        $(function () {
+            $('#container').highcharts({
+                chart: {
+                    type: 'areaspline'
+                },
+                title: {
+                    text: 'Average fruit consumption during one week'
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'left',
+                    verticalAlign: 'top',
+                    x: 150,
+                    y: 100,
+                    floating: true,
+                    borderWidth: 1,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+                },
+                xAxis: {
+                    categories: [
+                        'Monday',
+                        'Tuesday',
+                        'Wednesday',
+                        'Thursday',
+                        'Friday',
+                        'Saturday',
+                        'Sunday'
+                    ],
+                    plotBands: [{ // visualize the weekend
+                        from: 4.5,
+                        to: 6.5,
+                        color: 'rgba(68, 170, 213, .2)'
+                    }]
+                },
+                yAxis: {
+                    title: {
+                        text: 'Fruit units'
+                    }
+                },
+                tooltip: {
+                    shared: true,
+                    valueSuffix: ' units'
+                },
+                credits: {
+                    enabled: false
+                },
+                plotOptions: {
+                    areaspline: {
+                        fillOpacity: 0.5
+                    }
+                },
+                series: [{
+                    name: 'John',
+                    data: [3, 4, 3, 5, 4, 10, 12]
+                }, {
+                    name: 'Jane',
+                    data: [1, 3, 4, 3, 3, 5, 4]
+                }]
+            });
+        });
+    </script>
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+// <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    //  <script type="text/javascript" src="../js/zarin-adm-controllers.js"></script> -->
+    
