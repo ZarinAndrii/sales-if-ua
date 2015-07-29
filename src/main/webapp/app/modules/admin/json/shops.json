@@ -1,30 +1,30 @@
 [
-              {
-                "name": "Rozetka",
-                "productType":"All",
-                "location": "Lviv, Ivano-Frankivsk",
-                "email":"rozetka@gmail.com",
-                "status":"active"
-              },
-              {
-                "name": "Electron",
-                "productType":"Electronic",
-                "location": "Kyiv",
-                "email":"electronKyiv@gmail.com",
-                "status":"active"
-              },
-              {
-                "name": "Casual",
-                "productType":"Clothes",
-                "location": "Lviv",
-                "email":"clothesCasualLV@ukr.net",
-                "status":"blocked"
-              },
-              {
-                "name": "Audi UA",
-                "productType":"Cars",
-                "location": "Kyiv, Donetsk",
-                "email":"audi.ua@mail.ru",
-                "status":"active"
-              }
-          ]
+  {
+    "name": "Rozetka",
+    "productType": "All",
+    "location": "Lviv, Ivano-Frankivsk",
+    "email": "rozetka@gmail.com",
+    "status": "active"
+  },
+  {
+    "name": "Electron",
+    "productType": "Electronic",
+    "location": "Kyiv",
+    "email": "electronKyiv@gmail.com",
+    "status": "active"
+  },
+  {
+    "name": "Casual",
+    "productType": "Clothes",
+    "location": "Lviv",
+    "email": "clothesCasualLV@ukr.net",
+    "status": "blocked"
+  },
+  {
+    "name": "Audi UA",
+    "productType": "Cars",
+    "location": "Kyiv, Donetsk",
+    "email": "audi.ua@mail.ru",
+    "status": "active"
+  }
+]

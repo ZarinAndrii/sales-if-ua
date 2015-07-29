@@ -26,11 +26,10 @@
   <link rel="stylesheet" type="text/css" href="app/modules/home/css/anton-main-page-styles.css">
 
 
-
-<!--   <link rel="stylesheet" type="text/css" href="app/modules/home/css/anton-main-page-styles.css"> -->
-  <link href="app/modules/goods/css/nazar-style-for_characteristic-of-product.css" rel="stylesheet" type="text/css" media="screen"/>
-  <link href="app/modules/goods/css/nazar-style-for-login-page.css" rel="stylesheet" type="text/css" media="screen"/>
-
+    <!--   <link rel="stylesheet" type="text/css" href="app/modules/home/css/anton-main-page-styles.css"> -->
+    <link href="app/modules/goods/css/nazar-style-for_characteristic-of-product.css" rel="stylesheet" type="text/css"
+          media="screen"/>
+    <link href="app/modules/goods/css/nazar-style-for-login-page.css" rel="stylesheet" type="text/css" media="screen"/>
 
 
   <!-- app/Modules and controllers -->
@@ -44,30 +43,30 @@
   <script type="text/javascript" src="app/modules/admin/controllers/LineChartCtrl.js"></script>
 
   <!-- Including libs for templates -->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/app/modules/exporting.js"></script>
 
-  <script type="text/javascript" src="app/modules/admin/otherjs/templates.js"></script>
+    <!-- Goods module -->
+    <script type="text/javascript" src="app/modules/goods/index.js"></script>
+    <script type="text/javascript" src="app/modules/goods/controllers/LoginController.js"></script>
+    <script type="text/javascript" src="app/modules/goods/controllers/registrationCtrlCustomer.js"></script>
+    <script type="text/javascript" src="app/modules/goods/controllers/registrationCtrlShop.js"></script>
+    <script type="text/javascript" src="app/modules/goods/controllers/imagesCtrl.js"></script>
+    <script type="text/javascript" src="app/modules/goods/controllers/YouTubeCtrl.js"></script>
+    <script type="text/javascript" src="app/modules/goods/controllers/tablesCtrl.js"></script>
 
 
-  <!-- Goods module -->
-  <script type="text/javascript" src="app/modules/goods/index.js"></script>
-  <script type="text/javascript" src="app/modules/goods/controllers/LoginController.js"></script>
-  <script type="text/javascript" src="app/modules/goods/controllers/registrationCtrlCustomer.js"></script>
-  <script type="text/javascript" src="app/modules/goods/controllers/registrationCtrlShop.js"></script>
-  <script type="text/javascript" src="app/modules/goods/controllers/imagesCtrl.js"></script>
-  <script type="text/javascript" src="app/modules/goods/controllers/YouTubeCtrl.js"></script>
-  <script type="text/javascript" src="app/modules/goods/controllers/tablesCtrl.js"></script>
-
-  <!-- Home module -->
-  <script type="text/javascript" src="app/modules/home/index.js"></script>
-  <script type="text/javascript" src="app/modules/home/controllers/main.js"></script>
-  <script type="text/javascript" src="app/modules/home/controllers/test.js"></script>
-  <script type="text/javascript" src="app/modules/home/controllers/categoriesService.js"></script>
+    <!-- Home module -->
+    <script type="text/javascript" src="app/modules/home/index.js"></script>
+    <script type="text/javascript" src="app/modules/home/controllers/main.js"></script>
+    <script type="text/javascript" src="app/modules/home/controllers/test.js"></script>
+    <script type="text/javascript" src="app/modules/home/controllers/categoriesService.js"></script>
 
 </head>
 <body>
-  <div class="view-container">
+<div class="view-container">
     <div ng-view class="view-frame"></div>
-  </div>
+</div>
 
 </body>
 </html>

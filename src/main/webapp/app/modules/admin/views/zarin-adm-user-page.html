@@ -1,99 +1,106 @@
-		<!-- Setting navigation bar -->
-		<nav class="navbar navbar-inverse navbar-fixed-top adm-navStyle adm-borderNew" role="navigation">
-			<!--Setting sidebar -->
-			<ul class="nav navbar-nav adm-side-nav">
-				<li class="adm-ProfileUserImgMargin"><img src="modules/admin/img/1.jpg"  class="img-responsive"/></li>
-	                    		<li><a href="#/admin/users"></i><i class="fa fa-users"></i>  Users</a> </li>
-	                    		<li><a href="#/admin/shops"><i class="fa fa-shopping-cart"></i>  Shops</a></li>
-	                    		<li><a href="#/admin/statistics"><i class="fa fa-bar-chart"></i>  Statistics</a></li>
-				<!-- end sidebar -->
-			</ul>
- 			<div class="container-fluid">
-    				<div class="navbar-header">
-				      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					       	<span class="sr-only">Toggle navigation</span>
-					       	<span class="icon-bar"></span>
-					        	<span class="icon-bar"></span>
-					       	<span class="icon-bar"></span>
-				     	</button>
-    				</div>
-      				<ul class="nav navbar-nav navbar-right">
-					<form class="navbar-form navbar-left" role="search">
-  						<div class="form-group">
-  							<!-- Dropdown menu "Search by" -->
-							<li class="dropdown">
-		              				<button class="btn btn-default dropdown-toggle adm-DDMenuRightPadding" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    							Group by
-    							<span class="caret"></span>
-  							</button>
-              						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-             				 			<li><a href="#">Name</a></li>
-             				 			<li><a href="#">Sex</a></li>
-             				 			<li><a href="#">Age</a></li>
-             				 			<li><a href="#">Status</a></li>
-             				 			<li><a href="#">Date</a></li>
-         					 			<li class="divider"></li>
-        							</ul>
-        							<!-- Search menu -->
-   	 						<div class="input-group">
-							      <input type="text" class="form-control" placeholder="Search for...">
-							      <span class="input-group-btn">
-							        <button class="btn btn-default btnSizeUp" type="button" >
-							        <span class="fa fa-search" aria-hidden="true"></span>
-							        </button>
-							      </span>
-							    </div><!-- /input-group -->
-  						</div>
-					</form>
-       					<li class="dropdown">
-          					<a href="#" class="dropdown-toggle adm-DDUserMenuSessionMenuMarginRight" data-toggle="dropdown" role="button" aria-expanded="false"> <i class="fa fa-cog"></i> Zarin_Andrii <span class="caret"></span></a>
-          						<ul class="dropdown-menu" role="menu">
-						            <li><a href="#">Log Out</a></li>
-						            <li><a href="#">Profile</a></li>
-            						            <li class="divider"></li>
-               					</ul>
-    			</div>
-		</nav>
-		<div class="container-fluid" ng-controller="UsersCtrl">
-			<div class="col-md-2">
-			</div>
-				<div class="col-md-10">
-  					<h2>Users</h2>
-  					<p>The table consist of all registered users:</p>            
-  					<table class="table table-condensed">
-    					<thead>
-					<tr>
-					<th>№</th>
-					<th>Name</th>
-					<th>Sex</th>
-					<th>Age</th>
-					<th>E-mail</th>
-					<th>Status</th>
-					<th> </th>
-					</tr>
-					</thead>
-					<tbody>
-					<tr ng-class="getRowStatus(user.status)" ng-repeat="user in users">
-					<td >{{$index+1}}</td>
-					<td>{{user.name}}</td>
-					<td>{{user.sex}}</td>
-					<td>{{user.age}}</td>
-					<td>{{user.email}}</td>
-					<td>{{user.status}}</td>
-					<td> <button class="btn btn-default fa fa-plus-square" type="button">  Learn More</button>
-					    <button ng-click="changeButtonName($index)" class="btn btn-default fa adm-buttonSizeBlockUnblock" ng-class="getClass(user.status)" type="button"> 
-					    	{{showMessage(user.status)}}
-					    </button>
-					     <button ng-click="deleteUser($index)" class="btn btn-default fa fa-trash" type="button">  Delete</button></td>
-					</tr>
-					</tbody>
-					</table>
-				</div>
-		</div>
-		<div class="col-md-10">
-		</div>
-		<div class="col-md-2">
-		</div>
-		// <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-		//  <script type="text/javascript" src="../js/zarin-adm-controllers.js"></script> -->
-		
+<div class="container-fluid" ng-controller="UsersCtrl">
+    <div class="row ">
+        <div class="col-xs-6 col-sm-8 col-md-12 col-lg-12 ">
+            <!-- Nav bar -->
+            <nav class="navbar navbar-inverse navbar-fixed-top adm-navStyle adm-borderNew" role="navigation">
+                <!--Setting sidebar -->
+                <ul class="nav navbar-nav adm-side-nav">
+                    <li class="adm-ProfileUserImgMargin"><img src="app/modules/admin/img/1.jpg" class="img-responsive">
+                    </li>
+                    <li><a href="#/admin/users"></i><i class="fa fa-users"></i> Users</a></li>
+                    <li><a href="#/admin/shops"><i class="fa fa-shopping-cart"></i> Shops</a></li>
+                    <li><a href="#/admin/statistics"><i class="fa fa-bar-chart"></i> Statistics</a></li>
+                    <!-- end sidebar -->
+                </ul>
+                <div class="container-fluid navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <!-- Dropdown menu "Search by" -->
+                            <li class="dropdown">
+                                <button class="btn btn-default dropdown-toggle adm-DDMenuRightPadding" type="button"
+                                        id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="true" style="height: 32px">
+                                    Group by
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">Name</a></li>
+                                    <li><a href="#">Status</a></li>
+                                    <li><a href="#">Date</a></li>
+                                    <li class="divider"></li>
+                                </ul>
+                                <!-- Search menu -->
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for..."
+                                           style="height: 32px">
+                                    <span class="input-group-btn"><button class="btn btn-default" type="button"
+                                                                          style="height: 32px"><span
+                                            class="fa fa-search" aria-hidden="true"></span></button></span>
+                                </div>
+                        </div>
+                    </form>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle adm-DDRight" data-toggle="dropdown" role="button"
+                           aria-expanded="false"><i class="fa fa-cog"></i> Zarin_Andrii <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Log Out</a></li>
+                            <li><a href="#">Profile</a></li>
+                            <li class="divider"></li>
+                        </ul>
+                </ul>
+            </nav>
+            <!-- End row -->
+            <div class="row">
+                <div class="col-md-offset-2 col-sm-offset-5 col-xs-offset-5 col-lg-9 col-sm-8 col-xs-7 col-md-9 table-min">
+
+                    <h2>Users</h2>
+
+                    <p>The table consist of all registered users:</p>
+                    <table class="table table-condensed">
+                        <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Name</th>
+                            <th>Sex</th>
+                            <th>Age</th>
+                            <th>E-mail</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-class="getRowStatus(user.status)" ng-repeat="user in users">
+                            <td>{{$index+1}}</td>
+                            <td>{{user.name}} {{user.surname}}</td>
+                            <td>{{user.sex}}</td>
+                            <td>{{user.age}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.status}}</td>
+                            <td>
+                                <button class="btn btn-default fa fa-plus-square" type="button">More</button>
+                                <button ng-click="changeButtonName($index)"
+                                        class="btn btn-default fa adm-buttonSizeBlockUnblock"
+                                        ng-class="getClass(user.status)" type="button">
+                                    {{showMessage(user.status)}}
+                                </button>
+                                <button ng-click="deleteUser($index)" class="btn btn-default fa fa-trash" type="button">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
