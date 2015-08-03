@@ -15,7 +15,6 @@ admin.controller('HighchartsCtrl', ['$scope', '$http', function ($scope, $http) 
             $scope.shops[i] = $scope.data[i].shopsAmount;
         }
         $(function () {
-            //alert($scope.usersAmount);
             $('#container').highcharts({
                 chart: {
                     type: 'areaspline'
@@ -87,6 +86,9 @@ admin.controller('HighchartsCtrl', ['$scope', '$http', function ($scope, $http) 
                 legend: {
                     enabled: false
                 },
+                credits: {
+                    enabled: false
+                },
                 plotOptions: {
                     area: {
                         fillColor: {
@@ -121,8 +123,5 @@ admin.controller('HighchartsCtrl', ['$scope', '$http', function ($scope, $http) 
                 }]
             });
         });
-        //Adding styles for highcharts
-
-
     })
 }])
