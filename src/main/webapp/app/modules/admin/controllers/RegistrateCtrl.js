@@ -29,7 +29,6 @@ admin.controller('RegistrateCtrl', ['$scope', '$http', function ($scope, $http) 
             password: $scope.password,
             role: 3
         }
-
         $http.post('/Practice/users/add',shop);
         console.log('Shop registered' , shop);
     }
