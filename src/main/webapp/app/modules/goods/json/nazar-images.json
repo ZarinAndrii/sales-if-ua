@@ -1,14 +1,14 @@
 [	{
 
-		"main_photo": "modules/goods/img/2.jpg"
+		"main_photo": "app/modules/goods/img/2.jpg"
 	},
 	{	
-		"first_little_photo": "modules/goods/img/4.jpg"
+		"first_little_photo": "app/modules/goods/img/4.jpg"
 	},
 	{
-		"second_little_photo": "modules/goods/img/3.jpg"
+		"second_little_photo": "app/modules/goods/img/3.jpg"
 	},
 	{
-		"third_little_photo": "modules/goods/img/5.jpg"
+		"third_little_photo": "app/modules/goods/img/5.jpg"
 	}
 ]

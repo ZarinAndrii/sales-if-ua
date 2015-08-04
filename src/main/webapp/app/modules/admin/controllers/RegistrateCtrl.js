@@ -8,28 +8,28 @@ admin.controller('RegistrateCtrl', ['$scope', '$http', function ($scope, $http) 
     $scope.role =''; //1 - adm, 2 - user, 3 - shop
     $scope.regUser = function(){
         var user = {
-            first_name: $scope.first_name,
-            last_name: $scope.last_name,
+            firstName: $scope.first_name,
+            lastName: $scope.last_name,
             email: $scope.email,
             address: $scope.address,
             phoneNumber: $scope.phoneNumber,
             password: $scope.password,
             role: 2
         }
-        $http.post('Practice/users/add',user);
+        $http.post('/Practice/users/add',user);
         console.log('User registered' , user);
     }
     $scope.regShop = function(){
         var shop = {
-            first_name: $scope.first_name,
-            last_name: null,
+            firstName: $scope.first_name,
+            lastName: null,
             email: $scope.email,
             address: $scope.address,
             phoneNumber: $scope.phoneNumber,
             password: $scope.password,
             role: 3
         }
-        $http.post('Practice/users/add',shop);
+        $http.post('/Practice/users/add',shop);
         console.log('Shop registered' , shop);
     }
     //$http.post('Practice/users/add',user);
