@@ -5,6 +5,7 @@ admin.controller('HighchartsCtrl', ['$scope', '$http', function ($scope, $http) 
         $scope.cost = [];
         $scope.users = [];
         $scope.shops = [];
+        $scope.products = [];
         for (var i = 0; i < $scope.data.length; i++) {
             var time = $scope.data[i].date;
             var date = new Date(time);
@@ -13,11 +14,13 @@ admin.controller('HighchartsCtrl', ['$scope', '$http', function ($scope, $http) 
             $scope.cost[i] = $scope.data[i].cost;
             $scope.users[i] = $scope.data[i].usersAmount;
             $scope.shops[i] = $scope.data[i].shopsAmount;
+            $scope.products[i] = $scope.data[i].soldGoods;
         }
         $(function () {
             $('#container').highcharts({
                 chart: {
-                    type: 'areaspline'
+                    type: 'area',
+                    zoomType: 'x'
                 },
                 title: {
                     text: 'Users statistics'
@@ -62,14 +65,14 @@ admin.controller('HighchartsCtrl', ['$scope', '$http', function ($scope, $http) 
                 }]
             });
         });
-        //Second chart
+        //Second chart witch shows money transactions
         $(function () {
             $('#money-transactions').highcharts({
                 chart: {
                     zoomType: 'x'
                 },
                 title: {
-                    text: 'Money transactions rate over time'
+                    text: 'Money transactions'
                 },
                 subtitle: {
                     text: document.ontouchstart === undefined ?
@@ -120,6 +123,67 @@ admin.controller('HighchartsCtrl', ['$scope', '$http', function ($scope, $http) 
                     type: 'area',
                     name: 'Summary amount',
                     data: $scope.cost
+                }]
+            });
+        });
+        //third hichchart
+        $(function () {
+            $('#products').highcharts({
+                chart: {
+                    zoomType: 'x'
+                },
+                title: {
+                    text: 'Products sold'
+                },
+                subtitle: {
+                    text: document.ontouchstart === undefined ?
+                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+                },
+                xAxis: {
+                    categories: $scope.date,
+                },
+                yAxis: {
+                    title: {
+                        text: 'Sales rate'
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                credits: {
+                    enabled: false
+                },
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+
+                series: [{
+                    type: 'area',
+                    name: 'Summary amount',
+                    data: $scope.products
                 }]
             });
         });
