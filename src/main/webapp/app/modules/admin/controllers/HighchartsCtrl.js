@@ -58,7 +58,11 @@ admin.controller('HighchartsCtrl', ['$scope', '$http', function ($scope, $http) 
                 },
                 series: [{
                     name: 'New Users',
-                    data: $scope.users
+                    data: $scope.users,
+                    //Chart line width
+                    lineWidth: 1,
+                    //Points selection
+                    allowPointSelect: true
                 }, {
                     name: 'New Shops',
                     data: $scope.shops
