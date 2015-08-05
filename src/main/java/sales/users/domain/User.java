@@ -1,6 +1,7 @@
 package sales.users.domain;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import sales.roles.domain.Role;
 
@@ -61,6 +62,20 @@ public class User implements Serializable{
     @JoinColumn(name = "role", referencedColumnName = "id")
     @JsonProperty
     private Role role;
+
+    public User() {
+    }
+
+    public User(String password, String firstName, String lastName, City city, String email, String phoneNumber, Date creationDate, Role role) {
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.city = city;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.creationDate = creationDate;
+        this.role = role;
+    }
 
     public Long getId() {
         return id;

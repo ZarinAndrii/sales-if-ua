@@ -18,7 +18,7 @@ import java.util.List;
  * Created by taras on 29.07.15.
  */
 @RestController
-@RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/users")
 public class UserController {
     final static Logger logger = LoggerFactory.getLogger(UserController.class);
 
@@ -27,57 +27,64 @@ public class UserController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/shop")
+            value = "/shop",
+            produces = "application/json")
     public List<User> getAllShops(@RequestParam(required = false, value ="page", defaultValue = "0") int page,
                                   @RequestParam(required = false, value = "amount", defaultValue = "5") int amount,
                                   @RequestParam(required = false, value = "sort", defaultValue = "id") String sortField) {
-        logger.debug("Get pageable list of shops");
+        logger.info("Get pageable list of shops");
         return userService.findByRole("shop", page, amount, sortField);
     }
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/client")
+            value = "/client",
+            produces = "application/json")
     public List<User> getAllClients(@RequestParam(required = false, value ="page", defaultValue = "0") int page,
                                     @RequestParam(required = false, value = "amount", defaultValue = "5") int amount,
                                     @RequestParam(required = false, value = "sort", defaultValue = "id") String sortField) {
-        logger.debug("Get pageable list of clients");
+        logger.info("Get pageable list of clients");
         return userService.findByRole("client", page, amount, sortField);
     }
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/shop/{id}")
+            value = "/shop/{id}",
+            produces = "application/json")
     public User getShop(@PathVariable("id") Long id) {
-        logger.debug("Get Shop by id");
+        logger.info("Get Shop by id");
         return userService.getShop(id);
     }
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/client/{id}")
+            value = "/client/{id}",
+            produces = "application/json")
     public User getClient(@PathVariable("id") Long id) {
-        logger.debug("Get client by id");
+        logger.info("Get client by id");
         return userService.getClient(id);
     }
 
     @RequestMapping(
             method = RequestMethod.POST,
             value = "/add",
-            consumes = MediaType.APPLICATION_JSON_VALUE)
+            consumes= "application/json",
+            produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public User addPerson(@RequestBody User user) {
-        logger.debug("Add user");
+        logger.info("Add user");
         return userService.addUser(user);
+        //return null;
     }
 
     @RequestMapping(
             method = RequestMethod.PATCH,
             value = "/update/{id}",
-            consumes = MediaType.APPLICATION_JSON_VALUE)
+            consumes= "application/json",
+            produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public User updatePerson(@PathVariable("id") Long id, @RequestBody User user) {
-        logger.debug("Update User with id = " + id);
+        logger.info("Update User with id = " + id);
         User dbUser = userService.getById(id);
 
         if(user.getFirstName() != null) dbUser.setFirstName(user.getFirstName());
@@ -93,33 +100,36 @@ public class UserController {
 
     @RequestMapping(
             method = RequestMethod.DELETE,
-            value = "/delete/{id}")
+            value = "/delete/{id}",
+            produces = "application/json")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public String deleteEmployee(@PathVariable("id") Long id) {
-        logger.debug("Delete user with id = " + id);
+        logger.info("Delete user with id = " + id);
         userService.deleteUser(id);
         return "done";
     }
 
-    @RequestMapping(value = "/shop/{field}={value}",
-            method = RequestMethod.GET)
-    public List<User> filterShopBy(@PathVariable("field") String searchField,
-                              @PathVariable("value") String value,
+    @RequestMapping(value = "/shop/filter",
+            method = RequestMethod.GET,
+            produces = "application/json")
+    public List<User> filterShopBy(@RequestParam(value = "field") String searchField,
+                              @RequestParam(value = "value") String value,
                               @RequestParam(required = false, value ="page", defaultValue = "0") int page,
                               @RequestParam(required = false, value = "amount", defaultValue = "5") int amount,
                               @RequestParam(required = false, value = "sort", defaultValue = "id") String sortField) {
-        logger.debug("Filter Shops by " + searchField + " = " + value);
+        logger.info("Filter Shops by " + searchField + " = " + value);
         return userService.findBy("shop", searchField, value, page, amount, sortField);
     }
 
-    @RequestMapping(value = "/client/{field}={value}",
-            method = RequestMethod.GET)
-    public List<User> filterClientBy(@PathVariable("field") String searchField,
-                              @PathVariable("value") String value,
+    @RequestMapping(value = "/client/filter",
+            method = RequestMethod.GET,
+            produces = "application/json")
+    public List<User> filterClientBy(@RequestParam(value = "field") String searchField,
+                              @RequestParam(value = "value") String value,
                               @RequestParam(required = false, value ="page", defaultValue = "0") int page,
-                              @RequestParam(required = false, value = "amount", defaultValue = "5") int amount,
+                              @RequestParam(required = false, value = "amount", defaultValue = "1") int amount,
                               @RequestParam(required = false, value = "sort", defaultValue = "id") String sortField) {
-        logger.debug("Filter Clients by " + searchField + " = " + value);
+        logger.info("Filter Clients by " + searchField + " = " + value);
         return userService.findBy("client" ,searchField, value, page, amount, sortField);
     }
 
