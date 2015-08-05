@@ -11,10 +11,10 @@ admin.controller('RegistrateCtrl', ['$scope', '$http', function ($scope, $http) 
             firstName: $scope.first_name,
             lastName: $scope.last_name,
             email: $scope.email,
-            address: $scope.address,
+            city: $scope.address,
             phoneNumber: $scope.phoneNumber,
             password: $scope.password,
-            role: 2
+            role: {"id":2,"value":"client"}
         }
         $http.post('/Practice/users/add',user);
         console.log('User registered' , user);
@@ -24,12 +24,13 @@ admin.controller('RegistrateCtrl', ['$scope', '$http', function ($scope, $http) 
             firstName: $scope.first_name,
             lastName: null,
             email: $scope.email,
-            address: $scope.address,
+            city: $scope.address,
             phoneNumber: $scope.phoneNumber,
             password: $scope.password,
-            role: 3
+            role: {"id":3,"value":"shop"}
         }
         $http.post('/Practice/users/add',shop);
         console.log('Shop registered' , shop);
     }
 }])
+//{"id":1,"name":"if","region":{"id":1,"name":"obl1","country":{"id":1,"name":"Ukraine"}}}

@@ -7,20 +7,94 @@
                 <li><a href="#/admin/users"></i><i class="fa fa-users"></i> Users</a></li>
                 <li><a href="#/admin/shops"><i class="fa fa-shopping-cart"></i> Shops</a></li>
                 <li><a href="#/admin/statistics"><i class="fa fa-bar-chart"></i> Statistics</a></li>
-                <!-- end sidebar -->
+                <li>
+                    <div>
+                        <div class="checkbox textColor" style="margin-left: 10px; width: 100% ">
+                            <label>
+                                <input type="checkbox" id="checkbox1" ng-model="checkbox1">
+                                New members
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="checkbox textColor" style="margin-left: 10px; width: 100% ">
+                            <label>
+                                <input type="checkbox" id="checkbox2" ng-model="checkbox2">
+                                Money transactions
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="checkbox textColor" style="margin-left: 10px; width: 100% ">
+                            <label>
+                                <input type="checkbox" id="checkbox3" ng-model="checkbox3">
+                                Products sold
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="checkbox textColor" style="margin-left: 10px; width: 100% ">
+                            <label>
+                                <input type="checkbox" id="checkbox4" ng-model="checkbox4">
+                                Select time interval
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div ng-show="checkbox4 == true" style="margin-left: 10px; width: 100% ">
+                            <label> From
+                                <input class="ButtonColor BtnTextColor textColor form-control" type="date" id="date1" ng-model="date1">
+
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div ng-show="checkbox4 == true" style="margin-left: 10px; width: 100% ">
+                            <label> To
+                                <input class="ButtonColor BtnTextColor textColor form-control" type="date" id="date2" ng-model="date2">
+
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <button ng-click="getAddress()" ng-show="checkbox4 == true" type="submit" class="btn ButtonColor BtnTextColor textColor" data-dismiss="modal">
+                            Search
+                        </button>
+                        </div>
+                    </div>
+                </li>
+
+
             </ul>
+            <!-- end sidebar -->
         </div>
-        <div class="col-md-offset-2 col-sm-offset-3 col-xs-offset-3 col-lg-9 col-sm-8 col-xs-7 col-md-9 table-min" style="margin-top: 1%">
-            <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-            <div id="money-transactions" style="min-width: 310px; height: 400px; margin-top:0.5%"></div>
-            <div id="products" style="min-width: 310px; height: 400px; margin-top:0.5%"></div>
+        <div class="col-md-offset-2 col-sm-offset-3 col-xs-offset-3 col-lg-9 col-sm-8 col-xs-7 col-md-9 table-min"
+             style="margin-top: 1%" id="chart">
+            <div ng-show="checkbox1 == true" id="container"
+                    ></div>
+            <div ng-show="checkbox2 == true" id="money-transactions"
+                 style=" margin-top:0.5%"></div>
+            <div ng-show="checkbox3 == true" id="products"
+                 style=" margin-top:0.5%"></div>
         </div>
     </div>
 </div>
 
 <script>
     Highcharts.theme = {
-        colors: [ "rgb(255, 31, 0)","rgba(255, 255, 255, 1)", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+        colors: ["rgb(255, 31, 0)", "rgba(255, 255, 255, 1)", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
             "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
         chart: {
             backgroundColor: {
