@@ -84,7 +84,7 @@
 				<div class="panel-body"
 					 align="center">
 					created: {{getDate(comment.creationDate)}}
-					buy {{getUser(comment.userId)}}
+					buy {{comment.user.firstName}} {{comment.user.lastName}}
 					<!--{{comment.userId}}-->
 				</div>
 				<div class="panel-footer textColor" style="background-color: rgba(169, 169, 169, 0.12)">{{comment.commentText}}</div>

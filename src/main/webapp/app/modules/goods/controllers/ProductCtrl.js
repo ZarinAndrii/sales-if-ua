@@ -28,26 +28,8 @@ goods.controller('ProductCtrl', ['$scope', '$http','$routeParams','LoginService'
        $scope.comments = response.data ;
         console.log($scope.comments);
     });
-    $http.get('/Practice/user/client').then(function (response){
-        $scope.user = response.data;
-    });
     $scope.getDate = function(date){
         return new Date(date);
-    };
-    $scope.getUser = function(id){
-        //$scope.userCom = '';
-        //$http.get('/Practice/user/'+1).then(function (response){
-        //    $scope.userCom = response.data;
-        //});
-        //$scope.userID = 2;
-        for(var i=0;i<$scope.user.length;i++){
-            if($scope.user[i].id == id){
-                return $scope.user[i].firstName +' '+  $scope.user[i].lastName;
-            } else {return 'bla bal';}
-        }
-        //return $scope.userCom.firstName +' '+  $scope.userCom.lastName;
-        //
-        //return id;
     };
     $scope.productAvailability = function(index){
         if($scope.shops[index].quantity != 0){
@@ -56,18 +38,24 @@ goods.controller('ProductCtrl', ['$scope', '$http','$routeParams','LoginService'
             return '-';
         }
     };
+    console.log('User ID',LoginService.loggedUser.id);
     $scope.postComment = function(){
-      var comment = {
-            userId: LoginService.loggedUser.id,
-            goodId: $routeParams.goodId,
-            rating: 5,
-            commentText: $scope.text
-      };
-        $scope.text = '';
-        $http.post('/Practice/comment/', comment).then(function (response){
-            $http.get('/Practice/comment/'+$routeParams.goodId).then(function (response) {
-                $scope.comments = response.data ;
-            });
-        })
+        $http.get('/Practice/user/'+LoginService.loggedUser.id).then(function (response){
+            $scope.user = response.data;
+            console.log('User is:',$scope.user);
+            var comment = {
+                user:$scope.user,
+                goodId: $routeParams.goodId,
+                rating: 5,//hardcode
+                commentText: $scope.text
+            };
+            $scope.text = '';
+            console.log(comment);
+            $http.post('/Practice/comment/', comment).then(function (response){
+                $http.get('/Practice/comment/'+$routeParams.goodId).then(function (response) {
+                    $scope.comments = response.data ;
+                });
+            })
+        });
     };
 }]);

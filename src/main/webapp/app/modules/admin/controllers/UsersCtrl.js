@@ -32,7 +32,7 @@ admin.controller('UsersCtrl', ['$scope', '$http','$routeParams', function ($scop
     };
     $scope.deleteAlert = function(index){
         if(confirm('You want to delete user:'+$scope.users[index].firstName+' '+$scope.users[index].lastName)){
-            $http.delete('/Practice/user/delete/'+$scope.users[index].id);
+            $http.delete('/Practice/user/'+$scope.users[index].id);
             $http.get('/Practice/user/client').then(function (response) {
                 $scope.users = response.data;})
         }

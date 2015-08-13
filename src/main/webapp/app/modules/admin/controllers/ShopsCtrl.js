@@ -18,7 +18,7 @@ admin.controller('ShopsCtrl', ['$scope', '$http','$routeParams', function ($scop
     //}
     $scope.deleteAlert = function(index){
         if(confirm('You want to delete shop: '+$scope.shops[index].firstName)){
-            $http.delete('/Practice/user/delete/'+$scope.shops[index].id);
+            $http.delete('/Practice/user/'+$scope.shops[index].id);
             $http.get('/Practice/user/shop').then(function (response) {
                 $scope.shops = response.data;})
         }
