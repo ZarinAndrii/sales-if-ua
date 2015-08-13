@@ -83,7 +83,9 @@
 				 style="background-color: rgba(169, 169, 169, 0.26); border: rgba(169, 169, 169, 0.12)">
 				<div class="panel-body"
 					 align="center">
-					created: {{getDate(comment.creationDate)}} buy {{getUser(comment.userId)}}
+					created: {{getDate(comment.creationDate)}}
+					buy {{getUser(comment.userId)}}
+					<!--{{comment.userId}}-->
 				</div>
 				<div class="panel-footer textColor" style="background-color: rgba(169, 169, 169, 0.12)">{{comment.commentText}}</div>
 			</div>
@@ -97,7 +99,8 @@
 					Leave a comment
 				</div>
 				<div class="panel-footer textColor"
-					 style="background-color: rgba(169, 169, 169, 0.12)">
+					 style="background-color: rgba(169, 169, 169, 0.12)"
+						ng-show="role='admin' || role='client' || role='shop'">
 					<textarea name="text"
 							  id=""
 							  cols="30"
@@ -107,11 +110,6 @@
 							  type="text">
 
 					</textarea>
-					<!--<input-->
-							<!--ng-model="text"-->
-							<!--class="form-control BtnTextColor ButtonColor"-->
-							<!--type="text"-->
-							<!--style="width: 100%"/>-->
 					<button
 							ng-click="postComment()"
 							class="btn form-control BtnTextColor"

@@ -19,6 +19,7 @@ admin.controller('RegistrateCtrl', ['$scope', '$http', '$location', '$window', '
     $scope.password = '';
     $scope.clientID = '';
     $scope.secretKey = '';
+    $scope.getUsername = '';
     $scope.session = true;
     $scope.role = {"id": 2, "value": "client"}; //1 - adm, 2 - user, 3 - shop
 
@@ -33,23 +34,17 @@ admin.controller('RegistrateCtrl', ['$scope', '$http', '$location', '$window', '
           $scope.user = response.data;
           $scope.sessionRole = $scope.user.role.value;
           console.log($scope.user," ",$scope.sessionRole);
-          
-          LoginService.loggedUser.id = $scope.user.id;
-          LoginService.loggedUser.role = $scope.user.role.sessionValue;
-          console.log(LoginService.loggedUser);
 
+          LoginService.loggedUser.id = $scope.user.id;
+          LoginService.loggedUser.role = $scope.user.role.value;
+          console.log(LoginService.loggedUser);
+            $scope.getUsername = $scope.user.firstName + ' ' + $scope.user.lastName;
         });
     };
-
-    // $scope.$watch($scope.sessionValue, function(){
-    //     alert("Changed");
-    // });
-
     $scope.logOut = function(){
         $http.get('/Practice/logout');
         $window.location.reload();
         $location.path('/home');
-        
 
     };
     $scope.getCountry = function () {

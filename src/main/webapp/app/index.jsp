@@ -360,7 +360,7 @@
                             aria-expanded="false">
                             <!--NOTICE IMPORTANT THING ABOUT PASSING JSP VARIABLE TO JAVASCRIPT -->
 
-                        <i class="fa fa-cog" ng-init="grabSessionValue('${sessionScope.userEmail}')"> {{sessionValue}} </i>
+                        <i class="fa fa-cog" ng-init="grabSessionValue('${sessionScope.userEmail}')"> {{getUsername}} </i>
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
