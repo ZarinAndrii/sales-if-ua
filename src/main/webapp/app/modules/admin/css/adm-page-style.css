@@ -163,7 +163,8 @@ ul {
 }
 
 .backgroundIMG {
-    background-image: url(http://www.pageresource.com/wallpapers/wallpaper/abstract-pattern_482170.jpg);
+   /*background-color: rgba(0, 0, 0, 0.41);*/
+   background-image: url(http://www.pageresource.com/wallpapers/wallpaper/abstract-pattern_482170.jpg);
 }
 
 .ButtonColor {

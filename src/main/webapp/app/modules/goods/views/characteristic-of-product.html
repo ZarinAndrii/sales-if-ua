@@ -1,17 +1,21 @@
-<div class="container" style="margin-top: -1%" ng-controller="ProductCtrl">
+<div class="container" style="margin-top: -3%" ng-controller="ProductCtrl">
 		<div id="photoes" class= "row" align="center">
 			<div class= "col-md-4" align="center">
 				<p><img
 						src="app/modules/goods/img/2.jpg"
-						height="350"
-						width="350"
+						height="250"
+						width="250"
 						class="img-thumbnail"
 						data-toggle="modal"
+						style="margin-top: 23%"
 						></p>
 			</div>
-			<div  class= "col-md-8" >
+			<div  class= " col-md-8" align="center">
 					<div align="center">
-							<table class="table table textColor" id="characteristics_list">
+							<table
+									class="table table-bordered textColor"
+									id="characteristics_list"
+									style="background-color: rgba(0, 0, 0, 0.16)">
 								<caption><h3 align="center">{{product.name}}</h3></caption>
 								<tr>
 									<th >Characteristic's title</th>
@@ -25,55 +29,96 @@
 							</table>
 					</div>
 			</div>
+			<div class="col-md-12">
+				<table class="table table-bordered textColor" style="background-color: rgba(0, 0, 0, 0.16)">
+					<tbody>
+					<tr>
+						<th>Shop</th>
+						<th>Price</th>
+						<th>Availability</th>
+						<th></th>
+						<th> </th>
+					</tr>
+					<tr ng-repeat="shop in shops">
+						<td align="center" style="vertical-align: middle">{{shop.user.firstName}}</td>
+						<td align="center" style="vertical-align: middle">{{shop.price}}</td>
+						<td align="center">{{productAvailability($index)}}</td>
+						<td align="center" style="vertical-align: middle"><button class="btn ButtonColor BtnTextColor textColor"> Buy</button></td>
+						<td ng-controller="BucketCtrl" align="center" style="vertical-align: middle">
+							<button ng-click="addChart(product.id)"  class="btn ButtonColor BtnTextColor textColor"> Add to Chart</button></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 			<div class="row">
-				<div class="col-md-4">
-					<table class="table table-condensed textColor">
-						<tr>
-							<th >Shop</th>
-							<th>Price</th>
-							<th></th>
-							<th> </th>
-						</tr>
-						<tr>
-							<td align="center" style="vertical-align: middle">Rozetka</td>
-							<td align="center" style="vertical-align: middle">12999</td>
-							<td align="center" style="vertical-align: middle"><button class="btn ButtonColor BtnTextColor textColor"> Buy</button></td>
-							<td ng-controller="BucketCtrl" align="center" style="vertical-align: middle">
-								<button ng-click="addChart(product.id)"  class="btn ButtonColor BtnTextColor textColor"> Add to Chart</button></td>
-						</tr>
+				<!--<div class="col-md-offset-1 col-md-10">-->
+					<!--<table class="table table-bordered textColor">-->
+						<!--<tbody>-->
+						<!--<tr>-->
+							<!--<th>Shop</th>-->
+							<!--<th>Price</th>-->
+							<!--<th>Availability</th>-->
+							<!--<th></th>-->
+							<!--<th> </th>-->
+						<!--</tr>-->
+						<!--<tr ng-repeat="shop in shops">-->
+							<!--<td align="center" style="vertical-align: middle">{{shop.user.firstName}}</td>-->
+							<!--<td align="center" style="vertical-align: middle">{{shop.price}}</td>-->
+							<!--<td align="center">{{productAvailability($index)}}</td>-->
+							<!--<td align="center" style="vertical-align: middle"><button class="btn ButtonColor BtnTextColor textColor"> Buy</button></td>-->
+							<!--<td ng-controller="BucketCtrl" align="center" style="vertical-align: middle">-->
+								<!--<button ng-click="addChart(product.id)"  class="btn ButtonColor BtnTextColor textColor"> Add to Chart</button></td>-->
+						<!--</tr>-->
+						<!--</tbody>-->
+					<!--</table>-->
+				<!--</div>-->
+			</div>
+	<div class=" col-md-12">
+		<h3 align="center"
+			class="textColor">Comments </h3>
+		<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-primary textColor"
+				 align="center" ng-repeat="comment in comments"
+				 style="background-color: rgba(169, 169, 169, 0.26); border: rgba(169, 169, 169, 0.12)">
+				<div class="panel-body"
+					 align="center">
+					created: {{getDate(comment.creationDate)}} buy {{getUser(comment.userId)}}
+				</div>
+				<div class="panel-footer textColor" style="background-color: rgba(169, 169, 169, 0.12)">{{comment.commentText}}</div>
+			</div>
+		</div>
+		<div class="col-md-offset-2 col-md-8">
+			<div class="panel panel-primary textColor"
+				 align="center"
+				 style="background-color: rgba(169, 169, 169, 0.26); border: rgba(169, 169, 169, 0.12)">
+				<div class="panel-body"
+					 align="center">
+					Leave a comment
+				</div>
+				<div class="panel-footer textColor"
+					 style="background-color: rgba(169, 169, 169, 0.12)">
+					<textarea name="text"
+							  id=""
+							  cols="30"
+							  rows="5"
+							  ng-model="text"
+							  class="form-control BtnTextColor ButtonColor"
+							  type="text">
 
-					</table>
-				</div>
-				<div class="col-md-8">
-					<h3 align="center" class="textColor">Comments </h3>
-					<div class="col-md-offset-1 col-md-11" style="overflow-y: scroll; height:200px;">
-					<div class="panel panel-primary" align="center" ng-repeat="comment in comments">
-						<div class="panel-body" align="center">
-							 created: {{getDate(comment.creationDate)}} buy {{getUser(comment.userId)}}
-						</div>
-						<div class="panel-footer">{{comment.commentText}}</div>
-					</div>
-				</div>
-					<div class="col-md-offset-1 col-md-11">
-					<div class="panel panel-primary" align="center">
-						<div class="panel-body" align="center">
-							Leave a comment
-						</div>
-						<div class="panel-footer">
-							<input
-									ng-model="text"
-									class="form-control"
-									type="text"
-									style="width: 100%"/>
-							<button
-									ng-click="postComment()"
-									class="btn form-control"
-									style="width: 10%; background-color: rgba(181, 255, 64, 0.73)" > Sent</button>
-						</div>
-					</div>
-						</div>>
+					</textarea>
+					<!--<input-->
+							<!--ng-model="text"-->
+							<!--class="form-control BtnTextColor ButtonColor"-->
+							<!--type="text"-->
+							<!--style="width: 100%"/>-->
+					<button
+							ng-click="postComment()"
+							class="btn form-control BtnTextColor"
+							style="width: 10%; background-color: rgba(255, 255, 255, 0.44)" > Sent</button>
 				</div>
 			</div>
+		</div>
+	</div>
 
 		</div>

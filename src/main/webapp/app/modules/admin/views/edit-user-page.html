@@ -33,13 +33,13 @@
                     <tbody class="textColor">
                     <tr>
                         <td>First name:</td>
-                        <td><input type="text" class="form-control ButtonColor BtnTextColor textColor"
-                                   style="width :250px" placeholder={{user.firstName}}></td>
+                        <td><input type="text" ng-model="firstName" class="form-control ButtonColor BtnTextColor textColor"
+                                   style="width :250px"></td>
                     </tr>
                     <tr>
                         <td>Last name:</td>
-                        <td><input type="text" class="form-control ButtonColor BtnTextColor textColor"
-                                   style="width :250px" placeholder={{user.lastName}}></td>
+                        <td><input type="text" ng-model="lastName" class="form-control ButtonColor BtnTextColor textColor"
+                                   style="width :250px"></td>
                     </tr>
                     <!--<tr>-->
                         <!--<td>Sex:</td>-->
@@ -53,24 +53,38 @@
                     <!--</tr>-->
                     <tr>
                         <td>E-mail:</td>
-                        <td><input type="text" class="form-control ButtonColor BtnTextColor textColor"
-                                   style="width :250px" placeholder={{user.email}}></td>
+                        <td><input
+                                type="text"
+                                ng-model="email"
+                                class="form-control ButtonColor BtnTextColor textColor"
+                                style="width :250px"></td>
                     </tr>
                     <tr>
                         <td>Contact number:</td>
-                        <td><input type="text" class="form-control ButtonColor BtnTextColor textColor"
-                                   style="width :250px" placeholder={{user.phoneNumber}}></td>
+                        <td><input
+                                type="text"
+                                ng-model="phoneNumber"
+                                class="form-control ButtonColor BtnTextColor textColor"
+                                style="width :250px"></td>
                     </tr>
                     </tbody>
                 </table>
-                <button class="btn ButtonColor BtnTextColor textColor" type="button"><span aria-hidden="true"></span>
+                <button
+                        class="btn ButtonColor BtnTextColor textColor"
+                        type="button"
+                        ng-click="updateUser()">
+                    <span aria-hidden="true"></span>
                     Apply Changes
                 </button>
             </div>
         </div>
-        <!Class fo show profile img>
-        <div class="modal fade avatar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-             style="background-color: rgba(203, 203, 203, 0.46)	">
+        <!--<!show profile img>-->
+        <div
+                class="modal fade avatar"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myLargeModalLabel"
+                style="background-color: rgba(203, 203, 203, 0.46)	">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.66)">
                     <div class="modal-body" align="center">

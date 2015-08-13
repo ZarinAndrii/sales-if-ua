@@ -5,6 +5,7 @@ goods.controller('ProductCtrl', ['$scope', '$http','$routeParams', function ($sc
     $scope.products = '';
     $scope.descriptions = '';
     $scope.users = '';
+    $scope.shops = '';
     $scope.comments = '';
     $scope.text = '';
     $scope.userID = '';
@@ -17,6 +18,9 @@ goods.controller('ProductCtrl', ['$scope', '$http','$routeParams', function ($sc
             //    $scope.description[i]=$scope.products.description[i];
             //}
         });
+    $http.get('/Practice/storage/good?id='+$routeParams.goodId).then(function (response) {
+        $scope.shops = response.data;
+    });
     $http.get('/Practice/comment/'+$routeParams.goodId).then(function (response) {
        $scope.comments = response.data ;
     });
@@ -30,6 +34,13 @@ goods.controller('ProductCtrl', ['$scope', '$http','$routeParams', function ($sc
         //$scope.userID = 2;
         return $scope.users[id].firstName +' '+  $scope.users[id].lastName;
     };
+    $scope.productAvailability = function(index){
+        if($scope.shops[index].quantity != 0){
+            return '+';
+        } else {
+            return '-';
+        }
+    };
     $scope.postComment = function(){
       var comment = {
             userId: $scope.userID,
@@ -37,6 +48,11 @@ goods.controller('ProductCtrl', ['$scope', '$http','$routeParams', function ($sc
             rating: 5,
             commentText: $scope.text
       };
-        $http.post('/Practice/comment/', comment);
+        $scope.text = '';
+        $http.post('/Practice/comment/', comment).then(function (response){
+            $http.get('/Practice/comment/'+$routeParams.goodId).then(function (response) {
+                $scope.comments = response.data ;
+            });
+        })
     };
 }]);
