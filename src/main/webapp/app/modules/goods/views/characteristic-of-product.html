@@ -29,7 +29,7 @@
 								</tr>
 
 							</table>
-							<button class="btn btn-default" ng-click="showAModal()">Buy</button>
+							<!--<button class="btn btn-default" ng-click="showAModal()">Buy</button>-->
 					</div>
 			</div>
 			<div class="col-md-12">
@@ -46,7 +46,7 @@
 						<td align="center" style="vertical-align: middle">{{shop.user.firstName}}</td>
 						<td align="center" style="vertical-align: middle">{{shop.price}}</td>
 						<td align="center">{{productAvailability($index)}}</td>
-						<td align="center" style="vertical-align: middle"><button class="btn ButtonColor BtnTextColor textColor"> Buy</button></td>
+						<td align="center" style="vertical-align: middle"><button class="btn ButtonColor BtnTextColor textColor" ng-click="showAModal()"> Buy</button></td>
 						<td ng-controller="BucketCtrl" align="center" style="vertical-align: middle">
 							<button ng-click="addChart(product.id)"  class="btn ButtonColor BtnTextColor textColor"> Add to Chart</button></td>
 					</tr>
@@ -54,29 +54,6 @@
 				</table>
 			</div>
 		</div>
-			<div class="row">
-				<!--<div class="col-md-offset-1 col-md-10">-->
-					<!--<table class="table table-bordered textColor">-->
-						<!--<tbody>-->
-						<!--<tr>-->
-							<!--<th>Shop</th>-->
-							<!--<th>Price</th>-->
-							<!--<th>Availability</th>-->
-							<!--<th></th>-->
-							<!--<th> </th>-->
-						<!--</tr>-->
-						<!--<tr ng-repeat="shop in shops">-->
-							<!--<td align="center" style="vertical-align: middle">{{shop.user.firstName}}</td>-->
-							<!--<td align="center" style="vertical-align: middle">{{shop.price}}</td>-->
-							<!--<td align="center">{{productAvailability($index)}}</td>-->
-							<!--<td align="center" style="vertical-align: middle"><button class="btn ButtonColor BtnTextColor textColor"> Buy</button></td>-->
-							<!--<td ng-controller="BucketCtrl" align="center" style="vertical-align: middle">-->
-								<!--<button ng-click="addChart(product.id)"  class="btn ButtonColor BtnTextColor textColor"> Add to Chart</button></td>-->
-						<!--</tr>-->
-						<!--</tbody>-->
-					<!--</table>-->
-				<!--</div>-->
-			</div>
 	<div class=" col-md-12">
 		<h3 align="center"
 			class="textColor"></h3>

@@ -11,7 +11,7 @@
             <div class="col-md-offset-2 col-md-8">
 
               <form ng-submit="makeOrder()" name="OrderForm">
-          <div class="form-group has-feedback" ng-class="getClass(OrderForm.firstname.$valid, OrderForm.firstname.$pristine)">
+          <div class="form-group has-feedback " ng-class="getClass(OrderForm.firstname.$valid, OrderForm.firstname.$pristine)">
               <label>Name</label>
               <input type="text" name="firstname" class="form-control" ng-model="firstName" required ng-minlength="2" ng-pattern="/^[A-Za-zА-Яа-яі]*$/">
               <span class="glyphicon form-control-feedback" ng-class="getIconClass(OrderForm.firstname.$valid, OrderForm.firstname.$pristine)" ng-show="OrderForm.firstname.$dirty"></span>

@@ -12,7 +12,7 @@ goods.controller('ProductCtrl', ['$scope', '$http','$routeParams','LoginService'
     $scope.userID = LoginService.loggedUser.id;
     $scope.data =[];
     $scope.date = [];
-        $http.get('/Practice/goods?id='+$routeParams.goodId).then(function (response) {
+            $http.get('/Practice/goods?id='+$routeParams.goodId).then(function (response) {
             $scope.product = response.data;
             $scope.descriptions = response.data.description;
             //for(var i=0;i<$scope.products.length;i++){
